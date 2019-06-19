@@ -52,8 +52,8 @@ def newpill():
 
     try:
         logging.debug("POSTing image to server.")
-        post = requests.post(f"{PROT}{HOST}:{PORT}{ENDPOINT}", files=files, timeout=5)
-    except requests.exceptions.Timeout:
+        post = requests.post("{}{}:{}{}".format(PROT, HOST, PORT, ENDPOINT), files=files, timeout=5)
+    except requests.exceptions.ConnectionError:
         logging.error("POST request timed out!")
         return jsonify({"medication": "?"})
 
