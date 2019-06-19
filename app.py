@@ -7,8 +7,9 @@ import json
 import logging
 
 logging.basicConfig(
-    filename="{}".format(Path("~") / "logs" / "backend.log"),
+    filename="{}".format(Path.home() / "logs" / "backend.log"),
     format="%(asctime)s == PILLITUP == ACQUISITION == [%(levelname)-8s] %(message)s",
+    level=logging.DEBUG,
 )
 
 app = Flask("pill_it_up_rpi_backend")
