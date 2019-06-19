@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 from picamera import PiCamera
 from pathlib import Path
 
@@ -13,6 +14,7 @@ logging.basicConfig(
 )
 
 app = Flask("pill_it_up_rpi_backend")
+CORS(app)
 
 PROT = "http://"
 HOST = "35.189.72.164"
